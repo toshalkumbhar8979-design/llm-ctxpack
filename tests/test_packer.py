@@ -1,4 +1,4 @@
-from ctxpack import ContextItem, count_tokens, pack
+from llm_ctxpack import ContextItem, count_tokens, pack
 
 
 def test_all_items_fit_when_budget_is_large():

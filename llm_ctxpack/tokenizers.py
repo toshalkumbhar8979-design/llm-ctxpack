@@ -1,7 +1,7 @@
 """Token counting utilities.
 
 Uses tiktoken when it's installed (accurate, matches OpenAI-family models).
-Falls back to a dependency-free heuristic otherwise, so ctxpack never
+Falls back to a dependency-free heuristic otherwise, so llm-ctxpack never
 requires a hard dependency just to estimate size.
 """
 

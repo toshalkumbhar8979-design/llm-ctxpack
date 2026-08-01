@@ -1,26 +1,26 @@
-# ctxpack
+# llm-ctxpack
 
 Pack the most important text into a fixed LLM context-window token budget.
 
 Every RAG pipeline or agent eventually hits the same problem: you have more
 candidate context (retrieved chunks, chat history, tool output, file
-contents) than tokens to spend. `ctxpack` solves the "what do I keep, what do
+contents) than tokens to spend. `llm-ctxpack` solves the "what do I keep, what do
 I trim, what do I drop" decision for you — deterministically, and without
 pulling in a full LLM framework.
 
 ## Install
 
 ```bash
-pip install ctxpack
+pip install llm-ctxpack
 
 # optional: exact token counts via tiktoken (otherwise a ~4-char/token estimate is used)
-pip install "ctxpack[tiktoken]"
+pip install "llm-ctxpack[tiktoken]"
 ```
 
 ## Quickstart
 
 ```python
-from ctxpack import ContextItem, pack
+from llm_ctxpack import ContextItem, pack
 
 items = [
     ContextItem(id="system-notes", text=system_notes, priority=10, truncatable=False),
@@ -63,12 +63,12 @@ result = pack(items, budget=8000, reserve_tokens=1500)  # only 6500 available to
 ## CLI
 
 ```bash
-ctxpack doc1.md doc2.md notes.txt --budget 4000 --stats
+llm-ctxpack doc1.md doc2.md notes.txt --budget 4000 --stats
 # earlier files = higher priority; --stats prints what was kept/trimmed/dropped to stderr
 ```
 
 ```
-ctxpack --help
+llm-ctxpack --help
 ```
 
 ## Why not just truncate the whole prompt?
@@ -76,7 +76,7 @@ ctxpack --help
 Naive truncation (cut the end of the final concatenated string) treats every
 token as equally disposable — you might cut the system prompt or the most
 relevant retrieved doc just because it happened to be assembled last.
-`ctxpack` decides *what* to cut based on *what you told it matters*, before
+`llm-ctxpack` decides *what* to cut based on *what you told it matters*, before
 concatenation happens.
 
 ## License

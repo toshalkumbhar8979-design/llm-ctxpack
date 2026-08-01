@@ -1,4 +1,4 @@
-"""Core packing logic for ctxpack."""
+"""Core packing logic for llm-ctxpack."""
 
 from __future__ import annotations
 

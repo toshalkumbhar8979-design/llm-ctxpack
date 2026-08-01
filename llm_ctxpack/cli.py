@@ -11,7 +11,7 @@ from .packer import ContextItem, pack
 
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
-        prog="ctxpack",
+        prog="llm-ctxpack",
         description="Pack files into a fixed LLM context-window token budget, "
         "keeping the highest-priority content and trimming the rest.",
     )
@@ -59,7 +59,7 @@ def main(argv=None) -> int:
         try:
             text = path.read_text(encoding="utf-8", errors="replace")
         except OSError as e:
-            print(f"ctxpack: error reading {path}: {e}", file=sys.stderr)
+            print(f"llm-ctxpack: error reading {path}: {e}", file=sys.stderr)
             return 1
         # Earlier files on the command line get higher priority.
         priority = n - i
@@ -84,7 +84,7 @@ def main(argv=None) -> int:
 
     if args.stats:
         print(
-            f"\n[ctxpack] {result.total_tokens}/{result.budget} tokens used "
+            f"\n[llm-ctxpack] {result.total_tokens}/{result.budget} tokens used "
             f"({len(result.items)} included, {len(result.dropped_ids)} dropped)",
             file=sys.stderr,
         )

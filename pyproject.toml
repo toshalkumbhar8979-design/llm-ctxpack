@@ -3,13 +3,13 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ctxpack"
-version = "0.1.0"
+name = "llm-ctxpack"
+version = "0.2.1"
 description = "Pack the most important text into a fixed LLM context-window token budget."
 readme = "README.md"
 requires-python = ">=3.8"
 license = { text = "MIT" }
-authors = [{ name = "ctxpack contributors" }]
+authors = [{ name = "llm-ctxpack contributors" }]
 keywords = ["llm", "ai", "context-window", "rag", "tokens", "prompt-engineering"]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -25,10 +25,10 @@ tiktoken = ["tiktoken>=0.5"]
 dev = ["pytest>=7"]
 
 [project.urls]
-Homepage = "https://github.com/example/ctxpack"
+Homepage = "https://github.com/toshalkumbhar8979-design/ctxpack"
 
 [project.scripts]
-ctxpack = "ctxpack.cli:main"
+ctxpack = "llm_ctxpack.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["ctxpack*"]
+include = ["llm_ctxpack*"]

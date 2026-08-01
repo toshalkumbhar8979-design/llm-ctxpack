@@ -1,4 +1,4 @@
-"""ctxpack — pack the most important text into a fixed LLM context-window budget."""
+"""llm-llm-ctxpack — pack the most important text into a fixed LLM context-window budget."""
 
 from .packer import ContextItem, PackedItem, PackResult, pack
 from .tokenizers import count_tokens
